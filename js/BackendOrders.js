@@ -13,6 +13,16 @@ $(function(){
         cnt.toggle();
     });
     
+    if($('ul.filter-list input[name=is_button]').val() == 0) {
+        $('ul.filter-list input').on('change',function(){
+            var form = $(this).closest('form');
+            var href = form.serialize();
+            var view = $('#s-orders-views li.selected').data('view');
+            form.find('.filters_href').attr('href','#/orders/hash=' + encodeURIComponent(href) + '&view=' + view + '/');
+            window.location = form.find('.filters_href').attr('href');
+        });
+    }
+    
     $('body').on('click', '.submit-filter', function(){
         var button = $(this);
         var form = button.closest('form');
