@@ -40,13 +40,16 @@
                     <label><i class="icon16 calendar"></i><input type="text" name="update_datetime_to" id="to" class="calendar "/></label>
                 </div>
             </li>
-            <li class="submit-wrap cleafix">
-
-                <div class="coll2">
-                    <a href="#/orders/hash=state_id[]=new/" class="submit-filter button green">Подобрать</a>
+            <li class="submit-wrap cleafix" {if !$is_button}style="display: none;" {/if}>
+                <div style="display: none;">
+                    <a href="" class="filters_href"></a>
+                    <input type="hidden" name="is_button" value="{$is_button}" />
+                </div>
+                <div class="coll2" >
+                    <a href="#/orders/" class="submit-filter button green">Подобрать</a>
                 </div>
                 <div class="coll2">
-                    <a href="#/orders" class="refresh-filter">Сбросить</a>
+                    <a href="#/orders/all&view=table/" class="refresh-filter">Сбросить</a>
                 </div>
             </li>
         </ul>
