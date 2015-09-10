@@ -1,6 +1,7 @@
 <?php
 return array(
     'name' => 'Orders Filter',
+    'shop_settings' => true,
 
     'handlers' =>
         array(

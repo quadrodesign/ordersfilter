@@ -4,10 +4,18 @@ class shopOrdersfilterPlugin extends shopPlugin
 {
     public function backendOrders()
     {
+        if (!$this->getSettings('status')) {
+            return false;
+        }
         $view = wa()->getView();
         $plugin_model = new shopPluginModel();
         $workflow = new shopWorkflow();
 
+        $model_settings = new waAppSettingsModel();
+        $settings = $model_settings->get($key = array('shop', 'ordersfilter'));
+        $is_button = $settings['is_button'] ? 1 : 0;
+
+        $view->assign('is_button', $is_button);
         $view->assign('states', $workflow->getAvailableStates());
         $view->assign('payments', $plugin_model->listPlugins(shopPluginModel::TYPE_PAYMENT));
         $view->assign('shippings', $plugin_model->listPlugins(shopPluginModel::TYPE_SHIPPING));
@@ -16,6 +24,9 @@ class shopOrdersfilterPlugin extends shopPlugin
 
     public function backendOrder()
     {
+        if (!$this->getSettings('status')) {
+            return false;
+        }
         if (waRequest::get('hash')) {
             return array('info_section' => wa()->getView()->fetch($this->path . '/templates/actions/backend/BackendOrder.html'));
         }

@@ -34,16 +34,20 @@
                 </ul>
             </li>
             <li class="filter-items">
-                <div class="filter-head"><i class="icon16 darr active"></i><span class="name">Дата изменения</span></div>
+                <div class="filter-head"><i class="icon16 rarr active"></i><span class="name">Дата изменения</span>
+                </div>
                 <div class="filter-params not-padd">
                     <label><i class="icon16 calendar"></i><input type="text" name="update_datetime_from" id="from" class="calendar"/></label> -
                     <label><i class="icon16 calendar"></i><input type="text" name="update_datetime_to" id="to" class="calendar "/></label>
                 </div>
             </li>
-            <li class="submit-wrap cleafix">
-
+            <li class="submit-wrap cleafix" {if !$is_button}style="display: none;" {/if}>
+                <div style="display: none;">
+                    <a href="" class="filters_href"></a>
+                    <input type="hidden" name="is_button" value="{$is_button}"/>
+                </div>
                 <div class="coll2">
-                    <a href="#/orders/hash=state_id[]=new/" class="submit-filter button green">Подобрать</a>
+                    <a href="#/orders/hash=state_id[]=new/" class="submit-filter button green">Применить</a>
                 </div>
                 <div class="coll2">
                     <a href="#/orders" class="refresh-filter">Сбросить</a>
