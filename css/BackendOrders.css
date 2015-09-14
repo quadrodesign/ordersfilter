@@ -1,4 +1,4 @@
-    .ui-datepicker.ui-widget-content{ border:2px solid gray;  border-radius: 4px; }
+    .ui-datepicker.ui-widget-content{ display:none; border:2px solid gray;  border-radius: 4px; }
     .filter-list{ margin: 0; padding: 0;  padding-top: 10px; padding-bottom: 10px;}
     .filter-list li{ list-style: none; position: relative; line-height: 16px; }
     .filter-items{ margin-bottom: 8px; }
